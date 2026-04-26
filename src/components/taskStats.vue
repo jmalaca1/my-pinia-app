@@ -1,6 +1,6 @@
 <template>
   <div class="task-stats">
-    <h3>Statistics</h3>
+    <h3>📊 Statistics</h3>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-value">{{ taskStore.totalTasks }}</div>
@@ -20,13 +20,15 @@
       </div>
     </div>
     
-    <!-- Progress bar (creative use of getter) -->
     <div class="progress-bar">
       <div 
         class="progress-fill" 
         :style="{ width: taskStore.completionPercentage + '%' }"
       ></div>
     </div>
+    <p class="progress-text" v-if="taskStore.completionPercentage === 100">
+      🎉 Perfect! All tasks completed! 🎉
+    </p>
   </div>
 </template>
 
@@ -38,10 +40,14 @@ const taskStore = useTaskStore()
 
 <style scoped>
 .task-stats {
-  background: #f0f0f0;
-  padding: 20px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #f8f0ff 0%, #ffe6f0 100%);
+  padding: 25px;
+  border-radius: 15px;
   margin-top: 20px;
+}
+.task-stats h3 {
+  color: #8e44ad;
+  margin-bottom: 15px;
 }
 .stats-grid {
   display: grid;
@@ -53,27 +59,44 @@ const taskStore = useTaskStore()
   background: white;
   padding: 15px;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(155, 89, 182, 0.1);
+  transition: transform 0.2s;
+}
+.stat-card:hover {
+  transform: translateY(-3px);
 }
 .stat-value {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
-  color: #42b883;
+  background: linear-gradient(135deg, #9b59b6 0%, #e84393 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .stat-label {
   font-size: 12px;
-  color: #666;
+  color: #9b59b6;
   margin-top: 5px;
+  font-weight: 500;
 }
 .progress-bar {
-  background: #ddd;
-  height: 20px;
-  border-radius: 10px;
+  background: #f0e6ff;
+  height: 25px;
+  border-radius: 25px;
   overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 .progress-fill {
-  background: #42b883;
+  background: linear-gradient(90deg, #9b59b6 0%, #e84393 100%);
   height: 100%;
-  transition: width 0.3s ease;
+  transition: width 0.5s ease;
+  border-radius: 25px;
+}
+.progress-text {
+  text-align: center;
+  margin-top: 10px;
+  color: #e84393;
+  font-weight: bold;
 }
 </style>

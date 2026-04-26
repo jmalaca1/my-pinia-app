@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <h1>✅ Task Manager with Pinia</h1>
-    <p>Demonstrating State, Getters, and Actions</p>
+    <div class="header">
+      <h1>💖💜 Task Manager with Pinia 💜💖</h1>
+      <p>Demonstrating State, Getters, and Actions</p>
+    </div>
     
     <TaskInput />
     <TaskList />
@@ -21,17 +23,36 @@ import TaskStats from './components/taskStats.vue'
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f0ff 0%, #ffe6f0 100%);
   padding: 20px;
+  min-height: 100vh;
 }
+
 #app {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
 h1 {
-  color: #42b883;
+  background: linear-gradient(135deg, #9b59b6 0%, #e84393 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5em;
   margin-bottom: 10px;
+}
+
+.header p {
+  color: #9b59b6;
+  font-size: 1.1em;
 }
 </style>
